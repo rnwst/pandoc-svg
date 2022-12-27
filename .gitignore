@@ -1,0 +1,13 @@
+node_modules/
+coverage/
+docs/
+package-lock.json
+tests/test.html
+tests/*.tex
+tests/*.pdf
+tests/*.pdf_tex
+tests/*.aux
+tests/*.fdb_latexmk
+tests/*.fls
+tests/*.log
+tests/*.synctex.gz

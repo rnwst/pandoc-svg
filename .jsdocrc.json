@@ -1,0 +1,15 @@
+{
+  "source": {
+    "include": ["."],
+    "includePattern": ".+\\.js$",
+    "excludePattern": "node_modules/|coverage\\/|docs\\/"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+      "cleverLinks": false,
+      "monospaceLinks": false
+  },
+  "opts": {
+    "destination": "./docs"
+  }
+}
