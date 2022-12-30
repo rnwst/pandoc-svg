@@ -1,5 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="271" height="190" viewBox="0 0 71.5 50">
+  <style>
+  @media (prefers-color-scheme: light) {
+    svg {
+      filter: contrast(90%);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    svg {
+      filter: contrast(90%) url(#invert-luminance);
+    }
+  }
+  </style>
   <defs>
+    <filter id="invert-luminance" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix"
+       values="
+         0.368  -1.023  -0.346  0  1
+        -0.632  -0.023  -0.346  0  1
+        -0.632  -1.023   0.654  0  1
+         0       0       0      1  0
+        "
+      />
+    </filter>
     <marker id="a" markerHeight="5" markerWidth="8.75" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" refX="0" refY="0" style="overflow:visible" viewBox="0 0 8.75 5">
       <path d="m0 0 5-5-17.5 5L5 5Z" style="fill:#000;fill-rule:evenodd;stroke:none" transform="scale(-.5)"/>
     </marker>

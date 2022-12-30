@@ -76,13 +76,41 @@ async function main() {
   const animatedSVGDom = utils.createDOM(utils.serialize(svgDOM));
   animatedSVGDom.querySelector('svg').innerHTML = '';
 
+  // Add `<style>` tag for light and dark modes.
+  const style =
+      animatedSVGDom.createElementNS('http://www.w3.org/2000/svg', 'style');
+  animatedSVGDom.querySelector('svg').appendChild(style);
+  style.innerHTML =
+    '@media (prefers-color-scheme: light) {' +
+      'svg {' +
+        'filter: contrast(90%);' +
+      '}' +
+    '}' +
+    ' ' +
+    '@media (prefers-color-scheme: dark) {' +
+      'svg {' +
+        'filter: contrast(90%) url(#invert-luminance);' +
+      '}' +
+    '}';
+
   // Add `<defs>` tag to animated SVG.
-  const defs = [...svgDOM.querySelector('svg').childNodes].filter( (node) => {
-    return node.tagName === 'defs';
-  })?.[0];
-  if (defs) {
-    animatedSVGDom.querySelector('svg').appendChild(defs);
-  }
+  const defs =
+      animatedSVGDom.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  animatedSVGDom.querySelector('svg').appendChild(defs);
+  defs.innerHTML =
+    '<filter id="invert-luminance" color-interpolation-filters="sRGB">' +
+      '<feColorMatrix type="matrix" values="' +
+       ' 0.368 -1.023 -0.346 0 1 ' +
+       '-0.632 -0.023 -0.346 0 1 ' +
+       '-0.632 -1.023  0.654 0 1 ' +
+       ' 0      0      0     1 0"/>' +
+    '</filter>';
+  [...svgDOM.querySelector('svg').childNodes].forEach( (node) => {
+    if (node.tagName === 'defs') {
+      defs.appendChild(node);
+    }
+  });
+  animatedSVGDom.querySelector('svg').appendChild(defs);
 
   // Create layers for old and new SVGs.
   const layerOld =
