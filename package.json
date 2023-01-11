@@ -51,7 +51,7 @@
     "README-files/*.png"
   ],
   "bin": {
-    "pandoc-svg": "./pandoc-svg.js",
-    "pandoc-svg-create-demo": "./tests/pandoc-svg-create-demo.js"
+    "pandoc-svg": "pandoc-svg.js",
+    "pandoc-svg-create-demo": "README-files/pandoc-svg-create-demo.js"
   }
 }
