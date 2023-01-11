@@ -27,12 +27,11 @@ All known current limitations are listed below:
 
 ## Installation
 
+pandoc-svg requires [Node.js](https://nodejs.org/en/).
 ``` console
-git clone https://github.com/rnwst/pandoc-svg.git
-cd pandoc-svg
-npm link
+npm install pandoc-svg --global
 ```
-I don't like to install npm packages system-wide, since this requires superuser privileges. To install the package user-wide instead, configure npm (before running `npm link`) to use the directory `~/.local/` for global installation of npm packages (this adds the line `prefix=~/.local/` to your `~/.npmrc`):
+I don't like to install npm packages system-wide, since this requires superuser privileges. To install the package user-wide instead, configure npm (before running the installation command) to use the directory `~/.local/` for global installation of npm packages (this adds the line `prefix=~/.local/` to your `~/.npmrc`):
 ``` console
 npm config set prefix '~/.local/'
 ```
