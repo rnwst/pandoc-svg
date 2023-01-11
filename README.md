@@ -1,4 +1,4 @@
-# pandoc-svg
+# [pandoc-svg](#) &middot; [![npm version](https://img.shields.io/npm/v/pandoc-svg)](https://www.npmjs.com/package/pandoc-svg)
 
 A [Pandoc](https://pandoc.org/index.html) [filter](https://pandoc.org/filters.html) that enables usage of Pandoc's Markdown in SVG `<text>` elements (see demos below). This is particularly useful for SVGs containing math.
 
