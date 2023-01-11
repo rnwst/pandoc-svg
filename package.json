@@ -1,6 +1,6 @@
 {
   "name": "pandoc-svg",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "A pandoc filter for HTML output that optimizes and inlines SVGs, and adapts them for use with MathJax.",
   "scripts": {
